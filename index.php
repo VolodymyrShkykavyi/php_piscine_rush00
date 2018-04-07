@@ -7,8 +7,8 @@
 	<link rel="stylesheet" type="text/css" href="./resources/styles/footer.css">
 </head>
 <body>
-	<?php include("get_categories.php"); ?>
-	<?php include("get_products.php"); ?>
+	<?php include("./resources/db_functions/get_categories.php"); ?>
+	<?php include("./resources/db_functions/get_products.php"); ?>
 	<?php include("./resources/header.php"); ?>
 	<?php include("./resources/content.php"); ?>
 	<?php include("./resources/footer.php"); ?>
