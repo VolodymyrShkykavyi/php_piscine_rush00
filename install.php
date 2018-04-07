@@ -56,6 +56,7 @@ $sql = "CREATE TABLE `users` (
  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
 `login` VARCHAR(50) NOT NULL, 
 `password` VARCHAR(255) NOT NULL,
+`is_admin` VARCHAR(1) NOT NULL DEFAULT '0',
 PRIMARY KEY (`id`)
 )";
 if (!mysqli_query($conn, $sql)){
@@ -76,9 +77,10 @@ if (!mysqli_query($conn, $sql)){
 //create admin
 $adm_passw = hash('sha256', "admin");
 $sql = "INSERT INTO `users`
-(`login`, `password`) VALUES 
-('admin', '{$adm_passw}'),
-('admin2', '{$adm_passw}')
+(`login`, `password`, `is_admin`) VALUES 
+('admin', '{$adm_passw}', '1'),
+('admin2', '{$adm_passw}', '1'),
+('user', '" . hash('sha256', 'qwerty') . "', '0')
 ";
 if (!mysqli_query($conn, $sql)){
     echo "Insert error: " . mysqli_error($conn);
