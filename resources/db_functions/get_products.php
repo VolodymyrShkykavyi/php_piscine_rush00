@@ -29,6 +29,16 @@ function get_products_by_category_name($name){
     return($data);
 }
 
+function get_product_by_name($name){
+    $name = trim($name);
+    if (!$name)
+        return(false);
+    $conn = db_connect();
+    $name = mysqli_real_escape_string($conn, $name);
+    $data = db_query($conn, "SELECT * FROM `products` WHERE `name` = '{$name}'");
+    return($data);
+}
+
 
 //echo "by id:<br>";
 //$res = get_products_by_category_id("1");
@@ -37,11 +47,11 @@ function get_products_by_category_name($name){
 //}
 //
 //echo "by name:<br>";
-//$res = get_products_by_category_name("Dogs");
+//$res = get_product_by_name("Barsik");
 //foreach ($res as $val){
 //    echo nl2br(print_r($val, 1));
 //}
-//
+////
 //echo "all:<br>";
 //$res = get_products_all();
 //foreach ($res as $val){
