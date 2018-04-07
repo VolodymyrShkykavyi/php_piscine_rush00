@@ -18,6 +18,7 @@ function get_products_by_category_id($id){
 }
 
 function get_products_by_category_name($name){
+    $name = trim($name);
     if (!$name)
         return(null);
     $conn = db_connect();

@@ -30,8 +30,8 @@ $res = get_categories_all();
 foreach ($res as $val) {
     echo nl2br(print_r($val, 1));
 }
-echo "<br/>id by name<br/>";
 
+echo "<br/>id by name<br/>";
 $res = get_category_id_by_name("Dogs");
 echo nl2br(print_r($res, 1));
 
