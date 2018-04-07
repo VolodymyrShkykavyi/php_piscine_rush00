@@ -9,7 +9,7 @@ function db_connect(){
 
     //check connection
     if (!$conn) {
-        die("Can't connect to Database: " . mysqli_connect_error());
+        die(mysqli_connect_error());
     }
 
     //select database

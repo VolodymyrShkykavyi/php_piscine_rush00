@@ -2,7 +2,7 @@
 require_once ("db_query.php");
 
 function get_categories_all(){
-    $data = db_query(db_connect(), "SELECT * FROM `product_categories`");
+    $data = db_query(db_connect(), "SELECT * FROM `categories`");
     return ($data);
 }
 
@@ -11,7 +11,7 @@ function get_category_id_by_name($name){
         return(null);
     $conn = db_connect();
     $name = mysqli_real_escape_string($conn, $name);
-    $data = db_query($conn, "SELECT `id` FROM `product_categories` WHERE `name` = '{$name}'");
+    $data = db_query($conn, "SELECT `id` FROM `categories` WHERE `name` = '{$name}'");
     return($data[0]['id']);
 }
 
@@ -21,7 +21,7 @@ function get_category_name_by_id($id){
     }
     $conn = db_connect();
     $id = mysqli_real_escape_string($conn, $id);
-    $data = db_query($conn, "SELECT `name` FROM `product_categories` WHERE `id` = {$id}");
+    $data = db_query($conn, "SELECT `name` FROM `categories` WHERE `id` = {$id}");
     return ($data[0]['name']);
 }
 
@@ -30,7 +30,7 @@ function get_category_name_by_id($id){
 //foreach ($res as $val) {
 //    echo nl2br(print_r($val, 1));
 //}
-
+//
 //echo "<br/>id by name<br/>";
 //$res = get_category_id_by_name("Dogs");
 //echo nl2br(print_r($res, 1));

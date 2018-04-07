@@ -10,7 +10,7 @@ function change_category_by_name($old_name, $new_name){
     $conn = db_connect();
     $old_name = mysqli_real_escape_string($conn, $old_name);
     $new_name = mysqli_real_escape_string($conn, $new_name);
-    $res = db_query($conn,"UPDATE `product_categories` SET `name`  = '{$new_name}' WHERE `name` = '{$old_name}'");
+    $res = db_query($conn,"UPDATE `categories` SET `name`  = '{$new_name}' WHERE `name` = '{$old_name}'");
     return ($res);
 }
 
@@ -20,7 +20,7 @@ function change_category_by_id($id, $new_name){
         return(false);
     $conn = db_connect();
     $new_name = mysqli_real_escape_string($conn, $new_name);
-    $res = db_query($conn,"UPDATE `product_categories` SET `name`  = '{$new_name}' WHERE `name` = '{$id}'");
+    $res = db_query($conn,"UPDATE `categories` SET `name`  = '{$new_name}' WHERE `name` = '{$id}'");
     return ($res);
 }
 

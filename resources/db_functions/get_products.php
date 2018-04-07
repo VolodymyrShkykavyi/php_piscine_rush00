@@ -13,7 +13,9 @@ function get_products_by_category_id($id){
     }
     $conn = db_connect();
     $id = mysqli_real_escape_string($conn, $id);
-    $data = db_query($conn, "SELECT * FROM `products` WHERE `categoryID` = '{$id}'");
+    $sql = "SELECT * FROM `products` WHERE `id` IN 
+(SELECT `productId` FROM `product_categories` WHERE `categoryId` = '{$id}')";
+    $data = db_query($conn, $sql);
     return ($data);
 }
 
@@ -25,7 +27,9 @@ function get_products_by_category_name($name){
     $category_id = get_category_id_by_name($name);
     if ($category_id == null)
         return(null);
-    $data = db_query($conn, "SELECT * FROM `products` WHERE `categoryID` = '{$category_id}'");
+	$sql = "SELECT * FROM `products` WHERE `id` IN 
+(SELECT `productId` FROM `product_categories` WHERE `categoryId` = '{$category_id}')";
+	$data = db_query($conn, $sql);
     return($data);
 }
 
@@ -36,6 +40,11 @@ function get_product_by_name($name){
     $conn = db_connect();
     $name = mysqli_real_escape_string($conn, $name);
     $data = db_query($conn, "SELECT * FROM `products` WHERE `name` = '{$name}'");
+	if ($data[0] && $data[0]['id']){
+		$data[0]['categories'] = array_values(
+			db_query(db_connect(), "SELECT `categoryId` FROM `product_categories` WHERE `productId` = '{$data[0]['id']}'")
+		);
+	}
     return($data);
 }
 
@@ -49,7 +58,7 @@ function get_product_by_name($name){
 //echo "by name:<br>";
 //$res = get_product_by_name("Barsik");
 //foreach ($res as $val){
-//    echo nl2br(print_r($val, 1));
+//    echo var_dump($val);
 //}
 ////
 //echo "all:<br>";

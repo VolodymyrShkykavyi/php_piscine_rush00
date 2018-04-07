@@ -8,7 +8,7 @@ function add_category($name){
         return (false);
     $conn = db_connect();
     $name = mysqli_real_escape_string($conn, $name);
-    db_query($conn, "INSERT INTO `product_categories` (`name`) VALUES ('{$name}');");
+    db_query($conn, "INSERT INTO `categories` (`name`) VALUES ('{$name}');");
     return (true);
 }
 
