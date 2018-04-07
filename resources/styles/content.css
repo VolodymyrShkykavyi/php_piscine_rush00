@@ -1,0 +1,78 @@
+#content {
+}
+#categ {
+	width: 25%;
+	height: 600px;
+	background-color: gainsboro;
+    float: left;
+	border: 1px solid black;
+	border-radius: 5px;
+}
+#items {
+	width: 48%;
+	height: 600px;
+	background-color: gainsboro;
+    float: left;
+	border: 1px solid black;
+	border-radius: 5px;
+	overflow: auto;
+}
+#bucket {
+	width: 25%;
+	height: 600px;
+	background-color: gainsboro;
+    float: left;
+	border: 1px solid black;
+	border-radius: 5px;
+}
+
+@media (max-width: 600px) {
+
+	#categ {
+		width: 150px;
+		clear: left;
+  	  position: absolute;
+	}
+	#items {
+		width: 300px;
+		clear: left;
+ 	   position: absolute;
+ 	   margin-left: 150px;
+	}
+	#bucket {
+		width: 150px;
+		clear: left;
+ 	   position: absolute;
+ 	   margin-left: 450px;
+	}
+}
+.categ {
+	background-color: grey;
+	margin: 5px 5px 5px 20px;
+	padding: 3px;
+	width: 70%;
+	text-align: center;
+	color: white;
+	border-radius: 8px;
+}
+.item {
+	background-color: white;
+	width: 150px;
+	height: 150px;
+	border-radius: 15px;
+	margin: 10px;
+	float: left;
+}
+.itemImg {
+	width: 100px;
+	margin-left: 25px;
+}
+.itemName, .itemPrice {
+	text-align: center;
+	line-height: 0px;
+}
+
+
+
+
+

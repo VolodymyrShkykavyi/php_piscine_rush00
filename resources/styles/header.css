@@ -1,0 +1,33 @@
+header {
+	width: 98%;
+	height: 100px;
+	background-color: gainsboro;
+	border: 3px solid black;
+	border-radius: 5px;
+}
+#headForm {
+	float: right;
+	margin: 5px;
+}
+
+@media (max-width: 600px) {
+	header {
+		width: 600px;
+	}
+}
+#headForm {
+	padding: 20px;
+	border-radius: 10px;
+	border: 1px solid black;
+	width: 300px;
+}
+#login {
+	margin: 0px 0px 10px 16px;
+}
+#password {
+	margin: 0px 0px 0px 20px;
+}
+#button {
+	margin: 0px 0px 0px 20px;
+	cursor: pointer;
+}
