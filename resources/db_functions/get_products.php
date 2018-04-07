@@ -29,21 +29,21 @@ function get_products_by_category_name($name){
     return($data);
 }
 
-/*
-echo "by id:<br>";
-$res = get_products_by_category_id("1");
-foreach ($res as $val){
-    echo nl2br(print_r($val, 1));
-}
 
-echo "by name:<br>";
-$res = get_products_by_category_name("Dogs");
-foreach ($res as $val){
-    echo nl2br(print_r($val, 1));
-}
-
-echo "all:<br>";
-$res = get_products_all();
-foreach ($res as $val){
-    echo nl2br(print_r($val, 1));
-}*/
+//echo "by id:<br>";
+//$res = get_products_by_category_id("1");
+//foreach ($res as $val){
+//    echo nl2br(print_r($val, 1));
+//}
+//
+//echo "by name:<br>";
+//$res = get_products_by_category_name("Dogs");
+//foreach ($res as $val){
+//    echo nl2br(print_r($val, 1));
+//}
+//
+//echo "all:<br>";
+//$res = get_products_all();
+//foreach ($res as $val){
+//    echo nl2br(print_r($val, 1));
+//}
