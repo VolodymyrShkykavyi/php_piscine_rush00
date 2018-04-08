@@ -22,13 +22,9 @@ require_once ("bucket.php");
 	</div>
 	<div id="bucket">
 		<img id="bucketImg" src="./resources/images/cart-12.png" alt="Bucket" title="Bucket">
-		<?php add_tobucket('test', 'https://cdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-note-5-pro-1.jpg', 12345)?>
         <p id="bucketName"> Bucket </p>
-        <?php get_bucket(); ?>
-        <p class="bucketItem"> 1234 </p>
-		<p class="bucketItem"> 1234 </p>
-		<p class="bucketItem"> 1234 </p>
-		<p class="bucketItem"> 1234 </p>
+        <p style="margin: 0 auto;"><?php bucket_total_price(); ?></p>
+        <?php get_bucket(); ?><br/>
 		<input id="orderButton" type="submit" name="submit" value="Order">
 	</div>
 </div>

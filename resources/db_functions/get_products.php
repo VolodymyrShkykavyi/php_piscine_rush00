@@ -59,7 +59,7 @@ function get_product_by_id($id){
 			db_query(db_connect(), "SELECT `categoryId` FROM `product_categories` WHERE `productId` = '{$data[0]['id']}'")
 		);
 	}
-	return ($data);
+	return ($data[0]);
 }
 
 //echo "by id:<br>";

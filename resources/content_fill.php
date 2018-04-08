@@ -23,6 +23,8 @@ if (!isset($_POST['submit']) || $_POST['submit'] == "All" || $_POST['submit'] ==
 		// echo '</div>';
 	}
 }
-
+elseif (is_numeric($_POST['submit'])){
+    include_once("view_product.php");
+}
 //			<button class="selectCateg" name="submit" type="submit" value="Phones">Click Me!</button>
 ?>
