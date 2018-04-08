@@ -12,6 +12,8 @@ function get_category_id_by_name($name){
     $conn = db_connect();
     $name = mysqli_real_escape_string($conn, $name);
     $data = db_query($conn, "SELECT `id` FROM `categories` WHERE `name` = '{$name}'");
+    if (empty($data))
+        return false;
     return($data[0]['id']);
 }
 

@@ -2,13 +2,18 @@
 session_start();
 require_once ("db_functions/users_func.php");
 
-if($_POST['log_in'] == "Login"){
+if(isset($_POST['log_in']) && $_POST['log_in'] == "Login"){
     if (auth($_POST['login'], $_POST['passwd'])){
         if (($user = get_user_by_login($_POST['login']))){
             $_SESSION['id'] = $user['id'];
             $_SESSION['login'] = $user['login'];
         }
     }
+}
+if (isset($_POST['unLogin']) && $_POST['unLogin'] == "Logout") {
+	$_SESSION['id'] = null;
+    $_SESSION['login'] = null;
+    $_POST['unLogin'] = null;
 }
 ?>
 <header>
@@ -25,9 +30,12 @@ if($_POST['log_in'] == "Login"){
 	<div class="createAccButton" onclick="document.getElementById('headerCreateAccHidden').style.display='block'">
 		Create account
 	</div>
+	<form id="admUnloginForm" action="./index.php" method="post">
+		<input id="admUnloginButton" type="submit" name="unLogin" value="Logout">
+	</form>
 </div>
     <?php
-    if (!$_SESSION['id'] && !$_SESSION['login']) {
+    if (!isset($_SESSION['id']) && !isset($_SESSION['login'])) {
         ?>
         <div id=headerLogin>
             <form id="headForm" action="index.php" method="post">
