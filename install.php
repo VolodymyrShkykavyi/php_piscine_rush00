@@ -117,10 +117,23 @@ if (!mysqli_query($conn, $sql)){
 $sql = "INSERT INTO `products`
 (`name`, `img`, `description`, `price`, `SKU`) VALUES 
 ('Xiaomi Redmi Note 5 Pro', 'https://cdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-note-5-pro-1.jpg', 'Redmi Note 5 Pro cобрал в себе лучшие достижения технической и инженерной науки, сделав их доступными большинству пользователей. Новый мощный процессор, двойная камера, защищенный экран с соотношением сторон 18:9 - всё это выводит ваш повседневный комфорт от использования смартфона на новый уровень. Металлический корпус и дисплей нового поколения Смартфон Redmi Note 5 Pro собран в металлическом корпусе с соотношением сторон 18:9. Благодаря этому на дисплее можно отобразить больше информации, делая его, при этом, более удобным для работы даже одной рукой. Камера для качественных селфи снимков. Изюминкой Redmi Note 5 Pro, превращающей его в один из лучших в классе камерафонов, стала его сдвоенная камера, которая построена на 12 Мп модуле Sony и 5 Мп модуле от Samsung. Фотоснимки сводятся воедино фирменным алгоритмом Xiaomi на основе AI. ', '12345.4321', '777'),
-('Barsik', 'https://img.gazeta.ru/files3/785/7637785/image-28-06-15-1119-pic4-970x550-24394.jpg', 'Best dog in the world', '1000', '1')
-";
+('Barsik', 'https://img.gazeta.ru/files3/785/7637785/image-28-06-15-1119-pic4-970x550-24394.jpg', 'Best dog in the world', '1000', '1'),
+('phone2', 'img_src', 'my description', '5', '12'),
+('dog2', 'img', 'descr', '1221', '1')";
 if (!mysqli_query($conn, $sql)){
     echo "Insert error: " . mysqli_error($conn);
+}
+
+//add categories to products
+$sql = "INSERT INTO `product_categories`
+ (`productId`, `categoryId`) VALUES 
+('1', '1'),
+('2', '4'),
+('3', '1'),
+('3', '4'),
+('4', '4')";
+if (!mysqli_query($conn, $sql)){
+	echo "Insert error: " . mysqli_error($conn);
 }
 
 //create orders
@@ -132,14 +145,6 @@ if (!mysqli_query($conn, $sql)){
     echo "Insert error: " . mysqli_error($conn);
 }
 
-//add categories to products
-$sql = "INSERT INTO `product_categories`
- (`productId`, `categoryId`) VALUES 
-('1', '1'),
-('2', '4')";
-if (!mysqli_query($conn, $sql)){
-	echo "Insert error: " . mysqli_error($conn);
-}
 
 
 mysqli_close($conn);

@@ -18,6 +18,6 @@ function del_category_by_id($id){
     if (!$id || !get_category_name_by_id($id))
         return(false);
     db_query(db_connect(), "DELETE FROM `categories` WHERE `id` = '{$id}'");
-	db_query(db_connect(), "DELETE FROM `product_categories` WHERE `categoryId` = {$id}";
+	db_query(db_connect(), "DELETE FROM `product_categories` WHERE `categoryId` = {$id}");
     return (true);
 }
