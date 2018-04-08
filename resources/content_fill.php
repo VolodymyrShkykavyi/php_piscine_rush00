@@ -1,5 +1,5 @@
 <?php
-if ($_POST['make_order']){
+if (isset($_POST['make_order'])){
     require_once ("order.php");
 }
 elseif (!isset($_POST['submit']) || $_POST['submit'] == "All" || $_POST['submit'] == "to Shop") {
