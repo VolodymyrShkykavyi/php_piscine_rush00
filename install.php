@@ -82,6 +82,7 @@ $sql = "CREATE TABLE `orders` (
 `userID` INT UNSIGNED NOT NULL,
 `date_order` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 `products` LONGTEXT NOT NULL,
+`price` INT UNSIGNED NOT NULL,
 PRIMARY KEY (`id`)
 )";
 if (!mysqli_query($conn, $sql)){
@@ -138,8 +139,8 @@ if (!mysqli_query($conn, $sql)){
 
 //create orders
 $sql = "INSERT INTO `orders`
-(`userID`, `products`) VALUES 
-('1', '" . serialize(['1', '2']) . "')
+(`userID`, `products`, `price`) VALUES 
+('1', '" . serialize(['1', '2']) . "', '11')
 ";
 if (!mysqli_query($conn, $sql)){
     echo "Insert error: " . mysqli_error($conn);

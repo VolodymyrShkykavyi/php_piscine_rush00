@@ -4,19 +4,21 @@ require_once ("db_query.php");
 require_once ("get_products.php");
 require_once ("users_func.php");
 
-function add_order($userId, $products_id_arr){
+function add_order($userId, $products_arr, $price){
     $userId = trim($userId);
-    if (!$userId || !get_user_by_id($userId) || empty($products_id_arr))
+    $price = trim($price);
+    if (!$userId || !get_user_by_id($userId) || empty($products_arr) ||
+        !$price || $price < 0 || !is_numeric($price))
         return(false);
-    foreach ($products_id_arr as &$value){
+    foreach ($products_arr as &$value){
         $value = trim($value);
         if (!is_numeric($value) || !get_product_by_id($value)){
             return(false);
         }
     }
     $conn = db_connect();
-    $data = mysqli_real_escape_string($conn, serialize($products_id_arr));
-    db_query($conn, "INSERT INTO `orders` (`userID`, `products`) VALUES ('{$userId}', '{$data}');");
+    $data = mysqli_real_escape_string($conn, serialize($products_arr));
+    db_query($conn, "INSERT INTO `orders` (`userID`, `products`, `price`) VALUES ('{$userId}', '{$data}', {$price});");
     return(true);
 }
 
@@ -45,6 +47,10 @@ function del_order_by_id($id){
     return (true);
 }
 
+function get_orders_all(){
+    return (db_query(db_connect(), "SELECT * FROM `orders`"));
+}
+
 //var_dump(add_order(1, [1, 2, 4]));
 
 //var_dump(get_order_by_id(1));
@@ -52,3 +58,5 @@ function del_order_by_id($id){
 //var_dump(get_orders_by_user_id(1));
 
 //var_dump(del_order_by_id(3));
+
+//var_dump(get_orders_all());
