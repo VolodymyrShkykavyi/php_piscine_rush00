@@ -1,5 +1,4 @@
 <?php
-session_start();
 require_once("db_functions/orders_func.php");
 require_once("db_functions/get_products.php");
 
