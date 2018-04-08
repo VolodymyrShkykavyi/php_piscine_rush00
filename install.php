@@ -144,9 +144,14 @@ $sql = "INSERT INTO `orders`
 if (!mysqli_query($conn, $sql)){
     echo "Insert error: " . mysqli_error($conn);
 }
-
-
-
+if (empty(mysqli_error($conn))){
+    rename("install.php", "install_done.php");
+    echo "SUCCESS<br/>database installed<br/>";
+    echo "<a href = /index.php>start page<a/>";
+}
+else {
+    var_dump(mysqli_error($conn));
+    echo "<a href = /install.php>reinstall<a/>";
+}
 mysqli_close($conn);
-echo "SUCCESS<br/>\n";
-echo "<a href = /index.php>start page<a/>";
+

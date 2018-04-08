@@ -28,5 +28,4 @@ if (isset($_POST['submit']) && $_POST['submit'] == "Delete category (by name)") 
 if (isset($_POST['submit']) && $_POST['submit'] == "Delete category (by ID)") {
 	del_category_by_id($_POST['delCatId']);
 }
-//header("Location: http://www.example.com/");
 ?>
