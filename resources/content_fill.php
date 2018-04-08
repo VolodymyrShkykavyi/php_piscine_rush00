@@ -1,5 +1,8 @@
 <?php
-if (!isset($_POST['submit']) || $_POST['submit'] == "All" || $_POST['submit'] == "to Shop") {
+if ($_POST['make_order']){
+    require_once ("order.php");
+}
+elseif (!isset($_POST['submit']) || $_POST['submit'] == "All" || $_POST['submit'] == "to Shop") {
 	$res = get_products_all();
 	foreach ($res as $val){
 		echo '<button class="item" name="submit" type="submit" value="' . $val['id'] . '">';
@@ -26,5 +29,7 @@ if (!isset($_POST['submit']) || $_POST['submit'] == "All" || $_POST['submit'] ==
 elseif (is_numeric($_POST['submit'])){
     include_once("view_product.php");
 }
+
+
 //			<button class="selectCateg" name="submit" type="submit" value="Phones">Click Me!</button>
 ?>

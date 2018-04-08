@@ -13,8 +13,14 @@ if ($_POST['bucket_delete']){
 function get_bucket()
 {
     if (!isset($_SESSION['bucket'])) {
-        $_SESSION['bucket'] = array();
+        if ($_COOKIE['bucket']){
+            $_SESSION['bucket'] = unserialize($_COOKIE['bucket']);
+        }
+        else {
+            $_SESSION['bucket'] = array();
+        }
     }
+    setcookie('bucket', serialize( $_SESSION['bucket']), time() + 86400);
     foreach ($_SESSION['bucket'] as $value) {
         ?>
         <div style="height: 70px; width: 100%;">
@@ -35,9 +41,6 @@ function get_bucket()
 function add_tobucket($id){
     if (!$id){
         return;
-    }
-    if (!isset($_SESSION['bucket'])) {
-        $_SESSION['bucket'] = array();
     }
     $product = get_product_by_id($id);
     if (!$product)

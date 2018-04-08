@@ -26,11 +26,11 @@ require_once ("bucket.php");
         <p id="bucketName"> Bucket </p>
         <p style="margin: 0 auto;"><?php bucket_total_price(); ?></p>
         <?php get_bucket(); ?><br/>
-		<input id="orderButton" type="submit" name="submit" value="Order">
+		<input id="orderButton" type="submit" name="make_order" value="Order">
         </form>
         <form action="/index.php" method="post" style="text-align: center">
             <input height="50px;" type="submit" name="bucket_delete" value="Clear all bucket">
-            <input style="ont-size: 30vw;width:30%;	margin-left: 35%;" type="hidden" name="submit" value="<?=$_POST['submit'];?>">
+            <input type="hidden" name="submit" value="<?=$_POST['submit'];?>">
         </form>
     </div>
 </div>
