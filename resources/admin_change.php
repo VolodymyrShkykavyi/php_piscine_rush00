@@ -9,8 +9,11 @@ if (isset($_POST['submit']) && $_POST['submit'] == "Add category") {
 	echo $_POST['addCateg'];
 }
 
-if (isset($_POST['add_artName']) && isset($_POST['add_artUrl']) && isset($_POST['add_artDescr']) && isset($_POST['add_artPrice']) && isset($_POST['add_artSku']) && $_POST['submit'] == "Add article") {
-	$arr = create_product_arr($_POST['add_artName'], $_POST['add_artUrl'], $_POST['add_artDescr'], $_POST['add_artPrice'], $_POST['add_artSku']);
+if (isset($_POST['add_artName']) && isset($_POST['add_artUrl']) && isset($_POST['add_artDescr']) &&
+    isset($_POST['add_artPrice']) && isset($_POST['add_artSku']) && $_POST['submit'] == "Add article" &&
+    isset($_POST['add_artCat'])) {
+    $categories = explode(',', $_POST['add_artCat']);
+	$arr = create_product_arr($_POST['add_artName'], $categories, $_POST['add_artUrl'], $_POST['add_artDescr'], $_POST['add_artPrice'], $_POST['add_artSku']);
 	add_product($arr);
 }
 if (isset($_POST['submit']) && $_POST['submit'] == "Change category (by name)") {
@@ -25,5 +28,5 @@ if (isset($_POST['submit']) && $_POST['submit'] == "Delete category (by name)") 
 if (isset($_POST['submit']) && $_POST['submit'] == "Delete category (by ID)") {
 	del_category_by_id($_POST['delCatId']);
 }
-
+//header("Location: http://www.example.com/");
 ?>

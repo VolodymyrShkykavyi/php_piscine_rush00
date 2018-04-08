@@ -66,7 +66,7 @@
 			<br>
 			<br>
 			Article Name to add article: <input style="margin-left:45px" id="" type="text" name="add_artName" value=""><br>
-			Article Category ID to add article: <input style="margin-left:4px" id="" type="text" name="add_artCat" value=""><br>
+			Article Category to add article: <input style="margin-left:4px" id="" type="text" name="add_artCat" value=""><br>
 			Article Image URL to add article: <input style="margin-left:8px" id="" type="text" name="add_artUrl" value=""><br>
 			Article Description to add article: <input style="margin-left:9px" id="" type="text" name="add_artDescr" value=""><br>
 			Article Price to add article: <input style="margin-left:51px" id="" type="text" name="add_artPrice" value=""><br>
