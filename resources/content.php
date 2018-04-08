@@ -1,62 +1,29 @@
 <div id=content>
 	<div id="categ">
-		<?php
-			$res = get_categories_all();
-			foreach ($res as $val) {
-			    echo '<div class="categ">' . $val['name'] . '</div>';
-			}
-		?>
+		<form action="index.php" method="post">
+			<input class="selectCateg" name="submit" type="submit" value="All">
+			<?php
+				$res = get_categories_all();
+				foreach ($res as $val) {
+				    echo '<input class="selectCateg" name="submit" type="submit" value="' . $val['name'] . '">';
+				}
+			?>
+		</form>
 	</div>
 	<div id="items">
-		<?php
-			$res = get_products_all();
-			foreach ($res as $val){
-    			echo '<div class="item">';
-    			echo '<img class="itemImg" src="' . $val['img'] . '" alt="img_alt">';
-				echo '<p class="itemName">' . $val['name'] . '</p>';
-				echo '<p class="itemPrice"> $' . $val['price'] . '</p>';
-				echo '</div>';
-			}
-		?>
-		<?php
-			$res = get_products_all();
-			foreach ($res as $val){
-    			echo '<div class="item">';
-    			echo '<img class="itemImg" src="resources/images/game-controller-4.png" alt="img_alt">';
-				echo '<p class="itemName">' . $val['name'] . '</p>';
-				echo '<p class="itemPrice"> $' . $val['price'] . '</p>';
-				echo '</div>';
-			}
-		?><?php
-			$res = get_products_all();
-			foreach ($res as $val){
-    			echo '<div class="item">';
-    			echo '<img class="itemImg" src="resources/images/game-controller-4.png" alt="img_alt">';
-				echo '<p class="itemName">' . $val['name'] . '</p>';
-				echo '<p class="itemPrice"> $' . $val['price'] . '</p>';
-				echo '</div>';
-			}
-		?><?php
-			$res = get_products_all();
-			foreach ($res as $val){
-    			echo '<div class="item">';
-    			echo '<img class="itemImg" src="resources/images/game-controller-4.png" alt="img_alt">';
-				echo '<p class="itemName">' . $val['name'] . '</p>';
-				echo '<p class="itemPrice"> $' . $val['price'] . '</p>';
-				echo '</div>';
-			}
-		?>
-<!-- 		<div class="item">
-			<img class="itemImg" src="resources/images/game-controller-4.png" alt="img_alt">
-			<span class="itemName">item_1</span>
-		</div> -->
+		<form action="index.php" method="post">
+
+		<?php include("./resources/content_fill.php"); ?>
+
+		</form>
 	</div>
 	<div id="bucket">
-		<img id="bucketImg" src="./resources/images/typewriter.png" alt="Bucket" title="Bucket">
-		<p> 1234 </p>
-		<p> 1234 </p>
-		<p> 1234 </p>
-		<p> 1234 </p>
+		<img id="bucketImg" src="./resources/images/cart-12.png" alt="Bucket" title="Bucket">
+		<p id="bucketName"> Bucket </p>
+		<p class="bucketItem"> 1234 </p>
+		<p class="bucketItem"> 1234 </p>
+		<p class="bucketItem"> 1234 </p>
+		<p class="bucketItem"> 1234 </p>
 		<input id="orderButton" type="submit" name="submit" value="Order">
 	</div>
 </div>

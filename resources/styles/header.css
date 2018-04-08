@@ -2,16 +2,18 @@ header {
 	width: 98%;
 	height: 100px;
 	background-color: gainsboro;
-	border: 3px solid black;
+	border: 1px solid black;
 	border-radius: 5px;
 }
 #headForm {
 	float: right;
 	margin: 5px;
-	padding: 20px;
+	padding: 5px;
+	padding-left: 25px;
 	border-radius: 10px;
 	border: 1px solid black;
 	width: 300px;
+	height: 78px;
 }
 #admForm {
 	float: right;
@@ -25,14 +27,18 @@ header {
 	margin-left: 100px;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 742px) {
 	header {
-		width: 600px;
+		width: 700px;
 	}
 }
 
+#loginOrCreation {
+	color: green;
+	text-align: center;
+}
 #login {
-	margin: 0px 0px 10px 16px;
+	margin: 5px 0px 10px 16px;
 }
 #password {
 	margin: 0px 0px 0px 20px;

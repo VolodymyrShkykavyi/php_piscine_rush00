@@ -3,14 +3,20 @@ footer {
 	height: 50px;
 	background-color: gainsboro;
 	clear: left;
-	border: 3px solid black;
+	border: 1px solid black;
 	border-radius: 5px;
+	position: static;
+	margin-top: 600px;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 742px) {
 	footer {
-		width: 600px;
+		width: 700px;
 	}
+}
+#footerImage {
+	height: 80%;
+	margin: 5px;
 }
 #copyright {
 	font-family: monospace;
