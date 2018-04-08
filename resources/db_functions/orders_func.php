@@ -11,8 +11,9 @@ function add_order($userId, $products_arr, $price){
         !$price || $price < 0 || !is_numeric($price))
         return(false);
     foreach ($products_arr as &$value){
-        $value = trim($value);
-        if (!is_numeric($value) || !get_product_by_id($value)){
+        $id = trim($value['id']);
+        $count = trim($value['count']);
+        if (!is_numeric($id) || !get_product_by_id($id) || !is_numeric($count) || $count < 1){
             return(false);
         }
     }
