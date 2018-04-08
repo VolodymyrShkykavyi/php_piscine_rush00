@@ -1,6 +1,15 @@
 <?php
 session_start();
 require_once ("db_functions/get_products.php");
+
+if ($_POST['bucket_del_item']){
+    clear_bucket_item($_POST['bucket_del_item']);
+    $_POST['bucket_del_item'] = NULL;
+}
+if ($_POST['bucket_delete']){
+    clear_bucket();
+}
+
 function get_bucket()
 {
     if (!isset($_SESSION['bucket'])) {
@@ -12,6 +21,10 @@ function get_bucket()
             <img style="height: 60px; width:60px; margin: 0 10px; float: left;" src="<?= $value['img']; ?>"/> <?= $value['name']; ?>
             <br/>
             <span>Count:</span> <?=$value['count'];?>
+            <span style="float: right; padding-right: 30px;">
+                <button type="submit" name="bucket_del_item" value="<?=$value['id'];?>">X</button>
+                <input type="hidden" name="submit" value="<?=$value['id'];?>">
+            </span>
             <br/>
             <span>Price: $<?=$value['count'] * $value['price']; ?></span>
         </div>
@@ -47,6 +60,17 @@ function bucket_total_price(){
         echo "<br/>Total price: \${$total}<br/><br/>";
 }
 
+function clear_bucket_item($id){
+    if (!$id)
+        return;
+    foreach ($_SESSION['bucket'] as $key => $value) {
+        if ($value['id'] == $id) {
+            echo "in";
+            unset($_SESSION['bucket'][$key]);
+            return;
+        }
+    }
+}
 function clear_bucket(){
     $_SESSION['bucket'] = array();
 }

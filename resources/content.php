@@ -21,10 +21,16 @@ require_once ("bucket.php");
 		</form>
 	</div>
 	<div id="bucket">
-		<img id="bucketImg" src="./resources/images/cart-12.png" alt="Bucket" title="Bucket">
+        <form action="/index.php" method="post">
+        <img id="bucketImg" src="./resources/images/cart-12.png" alt="Bucket" title="Bucket">
         <p id="bucketName"> Bucket </p>
         <p style="margin: 0 auto;"><?php bucket_total_price(); ?></p>
         <?php get_bucket(); ?><br/>
 		<input id="orderButton" type="submit" name="submit" value="Order">
-	</div>
+        </form>
+        <form action="/index.php" method="post" style="text-align: center">
+            <input height="50px;" type="submit" name="bucket_delete" value="Clear all bucket">
+            <input style="ont-size: 30vw;width:30%;	margin-left: 35%;" type="hidden" name="submit" value="<?=$_POST['submit'];?>">
+        </form>
+    </div>
 </div>
