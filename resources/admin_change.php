@@ -8,7 +8,7 @@ require_once ("./db_functions/users_func.php");
 require_once ("./db_functions/change_product.php");
 
 session_start();
-//if (is_admin($_SESSION['login'])) {
+if (isset($_SESSION['login']) && is_admin($_SESSION['login'])) {
 
 
     if (isset($_POST['submit']) && $_POST['submit'] == "Add category") {
@@ -77,5 +77,5 @@ session_start();
     }
 
 
-//}
+}
 ?>

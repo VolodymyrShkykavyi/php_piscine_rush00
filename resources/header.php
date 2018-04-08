@@ -24,9 +24,13 @@ if (isset($_POST['unLogin']) && $_POST['unLogin'] == "Logout") {
 </div>
 
 <div id="headerTwoButtons">
+<?php
+	if (isset($_SESSION['login']) &&  is_admin($_SESSION['login'])) {
+?>
 	<form id="admForm" action="./resources/admin_page.php" method="post">
 		<input id="admButton" type="submit" name="submit" value="Administration">
 	</form>
+	<?php } ?>
 	<div class="createAccButton" onclick="document.getElementById('headerCreateAccHidden').style.display='block'">
 		Create account
 	</div>

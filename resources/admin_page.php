@@ -19,6 +19,7 @@
 		<input id="viewCategories" type="submit" name="submit" value="View categories">
 		<input id="viewArticles" type="submit" name="submit" value="View articles">
 		<input id="viewUsers" type="submit" name="submit" value="View users">
+		<input id="viewOrders" type="submit" name="submit" value="View orders">
 		<br>
 		<input id="" type="text" name="viewCatId" value="">
 		<input id="viewUsers" type="submit" name="submit" value="View category (by ID)">

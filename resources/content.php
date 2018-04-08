@@ -32,5 +32,8 @@ require_once ("bucket.php");
             <input height="50px;" type="submit" name="bucket_delete" value="Clear all bucket">
             <input type="hidden" name="submit" value="<?=$_POST['submit'];?>">
         </form>
+        <form action="./index.php" method="post">
+        	<input id="orderButton" type="submit" name="make_order" value="My orders">
+        </form>
     </div>
 </div>

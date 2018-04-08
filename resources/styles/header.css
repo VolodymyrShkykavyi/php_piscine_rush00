@@ -13,7 +13,7 @@ header {
 
 
 #headerImage {
-	width: 50%;
+	width: 40%;
 	height: 90%;
 	float: left;
 }
@@ -33,8 +33,19 @@ header {
 }
 #admButton {
 	color: red;
+	width: 110px;
+	border: 1px solid grey;
 }
-#createAccButton {
+.createAccButton {
+	width: 108px;
+	height: 20px;
+	border-radius: 3px;
+	text-align: center;
+	background-color: white;
+	border: 1px solid grey;
+}
+#admUnloginButton {
+	width: 110px;
 	border: 1px solid grey;
 }
 
@@ -48,7 +59,7 @@ header {
 	float: left;
 	margin: 5px;
 	padding: 5px;
-	padding-left: 25px;
+	padding-left: 15px;
 	border-radius: 10px;
 	border: 1px solid black;
 	width: 300px;
@@ -85,8 +96,9 @@ header {
 	border: 1px solid grey;
 }
 #headerCreateAccHidden {
-	width: 600px;
-	height: 400px;
+	padding: 10px;
+	width: 330px;
+	height: 200px;
 	border: 5px solid red;
 	margin: auto;
 	box-shadow: 10px 10px 15px grey;

@@ -3,6 +3,7 @@
 require_once("./db_functions/get_categories.php");
 require_once("./db_functions/get_products.php");
 require_once("./db_functions/users_func.php");
+require_once("./db_functions/orders_func.php");
 
 if (isset($_POST['submit']) && $_POST["submit"] == "View categories") {
 	echo '<tr>';
@@ -151,6 +152,41 @@ if (isset($_POST['viewUseriByLogin']) && isset($_POST['submit']) && $_POST['subm
     	echo '<td>' . $res["is_admin"] . '</td>';
 		echo '</tr>';
 	}
+}
+if (isset($_POST['submit']) && $_POST['submit'] == "View orders") {
+	echo '<tr>';
+	echo '<th>ID</th>';
+	echo '<th>User ID</th>';
+	echo '<th>Login</th>';
+	echo '<th>Date</th>';
+	echo '<th>Products</th>';
+	echo '<th>Price</th>';
+	echo '</tr>';
+
+ 	$val = get_orders_all();
+ 	foreach ($val as $res) {
+ 	if ($res && isset($res['id']) && isset($res['userID']) && isset($res['date_order']) && isset($res['products']) && isset($res['price'])) {
+
+		echo '<tr>';
+    	echo '<td>' . $res['id'] . '</td>';
+    	echo '<td>' . $res['userID'] . '</td>';
+    	echo '<td>' . get_user_by_id($res['userID'])['login'] . '</td>';
+    	echo '<td>' . $res['date_order'] . '</td>';
+
+		$product_arr = unserialize($res['products']);
+        $str = "";
+        foreach ($product_arr as $value){
+            @$name = get_product_by_id($value['id'])['name'];
+            @$count = $value['count'];
+            $str = $str . ", {$name}({$count}) ";
+        }
+        $str = trim($str, ", ");
+
+    	echo '<td>' . $str . '</td>';
+    	echo '<td>' . $res["price"] . '</td>';
+		echo '</tr>';
+	}
+}
 }
 
 ?>
