@@ -6,7 +6,7 @@
 </head>
 <body id="admBody">
 	
-	<?php include("./admin_change.php"); ?>
+	<?php include("./admin_change.php");?>
 
 	<form id="toShop" action="../index.php" method="post">
 		<input id="toShopButton" type="submit" name="submit" value="to Shop">
@@ -28,6 +28,9 @@
 		<br>
 		<input id="" type="text" name="viewArtiByName" value="">
 		<input id="viewUsers" type="submit" name="submit" value="View article (by name)">
+		<br>
+		<input id="" type="text" name="viewUseriById" value="">
+		<input id="viewUsers" type="submit" name="submit" value="View user (by ID)">
 	</form>
 	<div id=viewField>
 		<table id="viewTable">
@@ -36,6 +39,26 @@
 
 		</table>
 	</div>
+	<div class="onclickButton"
+		onclick="document.getElementById('hidden01').style.display='block'">
+
+	</div>
+	<div class="onclickButton">
+
+	</div>
+	<div class="onclickButton">
+
+	</div>
+
+	<div id=hidden01 class="outDivDispNone">
+		<div class="formDispNone"
+		onclick="document.getElementById('hidden01').style.display='none'">
+
+		</div>
+	</div>
+
+	<div style="clear: left;"></div>	<!-- empty -->
+
 	<div class="admDivForms">
 		<form class="admForms" action="admin_page.php" method="post">
 			Category to add: <input id="" type="text" name="addCateg" value="">
@@ -69,5 +92,10 @@
 			<input id="" type="submit" name="submit" value="Delete category (by ID)">
 		</form>
 	</div>
+
+<!-- 	<script>
+		function
+	</script> -->
+
 </body>
 </html>

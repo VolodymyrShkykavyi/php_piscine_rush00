@@ -5,8 +5,47 @@ header {
 	border: 1px solid black;
 	border-radius: 5px;
 }
+@media (max-width: 742px) {
+	header {
+		width: 700px;
+	}
+}
+
+
+#headerImage {
+	width: 50%;
+	height: 90%;
+	float: left;
+}
+#headImage {
+	width: 90px;
+	margin-left: 100px;
+}
+
+
+#headerTwoButtons {
+	width: 10%;
+	height: 90%;
+	float:left;
+}
+#admForm {
+	
+}
+#admButton {
+	color: red;
+}
+#createAccButton {
+	border: 1px solid grey;
+}
+
+
+#headerLogin {
+	width: 40%;
+	height: 90%;
+	float: left;
+}
 #headForm {
-	float: right;
+	float: left;
 	margin: 5px;
 	padding: 5px;
 	padding-left: 25px;
@@ -15,24 +54,6 @@ header {
 	width: 300px;
 	height: 78px;
 }
-#admForm {
-	float: right;
-	margin-top: 40px;
-}
-#admButton {
-	color: red;
-}
-#headImage {
-	width: 90px;
-	margin-left: 100px;
-}
-
-@media (max-width: 742px) {
-	header {
-		width: 700px;
-	}
-}
-
 #loginOrCreation {
 	color: green;
 	text-align: center;
@@ -47,3 +68,19 @@ header {
 	margin: 0px 0px 0px 20px;
 	cursor: pointer;
 }
+
+
+#headerCreateAccHidden {
+	clear: both;
+	width: 100%;
+	height: 100%;
+	display: none;
+	border: 5px solid red;
+	z-index: 10;
+}
+#headerCreateAccHidden {
+	width: 600px;
+	height: 400px;
+}
+
+

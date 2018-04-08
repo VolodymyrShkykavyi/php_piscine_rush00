@@ -69,7 +69,7 @@
 }
 .itemImg {
 	width: 100px;
-	margin-left: 25px;
+	margin-left: auto;
 }
 .itemName, .itemPrice {
 	text-align: center;
@@ -89,7 +89,8 @@
 }
 #orderButton {
 	font-size: 30vw;
-	margin-left: 40%;
+	width:30%;
+	margin-left: 35%;
 }
 .selectCateg {
 	width: 100%;
@@ -99,7 +100,7 @@
 	font-size: 1.2em;
 	border-radius: 10px;
 	/*border: 2px solid rgb(140, 140, 140);*/
-	-webkit-transition-duration: 0.4s; /* Safari */
+	/*-webkit-transition-duration: 0.4s; /* Safari */*/
     transition-duration: 0.4s;
 }
 .selectCateg:hover {

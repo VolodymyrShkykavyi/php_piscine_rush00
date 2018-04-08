@@ -21,7 +21,6 @@ if (isset($_POST['submit']) && $_POST['submit'] == "View articles") {
 	echo '<tr>';
 	echo '<th>Id</th>';
 	echo '<th>Name</th>';
-	echo '<th>CategoryID</th>';
 	echo '<th>Image URL</th>';
 	echo '<th>Description</th>';
 	echo '<th>Price</th>';
@@ -33,13 +32,33 @@ if (isset($_POST['submit']) && $_POST['submit'] == "View articles") {
 		echo '<tr>';
     	echo '<td>' . $val['id'] . '</td>';
     	echo '<td>' . $val['name'] . '</td>';
-    	echo '<td>' . $val['categoryID'] . '</td>';
     	echo '<td>' . $val['img'] . '</td>';
     	echo '<td>' . $val['description'] . '</td>';
     	echo '<td>' . $val['price'] . '</td>';
     	echo '<td>' . $val['SKU'] . '</td>';
 		echo '</tr>';
 	}
+}
+if (isset($_POST['submit']) && $_POST['submit'] == "View users") {
+	echo '<tr>';
+	echo '<th>Id</th>';
+	echo '<th>Login</th>';
+	echo '<th>e-mail</th>';
+	echo '<th>Hashed password</th>';
+	echo '<th>Is admin</th>';
+	echo '</tr>';
+
+ // 	$res = get_products_all();
+	// foreach ($res as $val) {
+	// 	echo '<tr>';
+ //    	echo '<td>' . $val['id'] . '</td>';
+ //    	echo '<td>' . $val['name'] . '</td>';
+ //    	echo '<td>' . $val['img'] . '</td>';
+ //    	echo '<td>' . $val['description'] . '</td>';
+ //    	echo '<td>' . $val['price'] . '</td>';
+ //    	echo '<td>' . $val['SKU'] . '</td>';
+	// 	echo '</tr>';
+	// }
 }
 if (isset($_POST['submit']) && $_POST['submit'] == "View category (by ID)") {
 	echo get_category_name_by_id($_POST['viewCatId']);
@@ -51,7 +70,6 @@ if (isset($_POST['submit']) && $_POST['submit'] == "View articles (by category)"
 	echo '<tr>';
 	echo '<th>Id</th>';
 	echo '<th>Name</th>';
-	echo '<th>CategoryID</th>';
 	echo '<th>Image URL</th>';
 	echo '<th>Description</th>';
 	echo '<th>Price</th>';
@@ -63,7 +81,6 @@ if (isset($_POST['submit']) && $_POST['submit'] == "View articles (by category)"
 		echo '<tr>';
     	echo '<td>' . $val['id'] . '</td>';
     	echo '<td>' . $val['name'] . '</td>';
-    	echo '<td>' . $val['categoryID'] . '</td>';
     	echo '<td>' . $val['img'] . '</td>';
     	echo '<td>' . $val['description'] . '</td>';
     	echo '<td>' . $val['price'] . '</td>';
@@ -75,7 +92,6 @@ if (isset($_POST['submit']) && $_POST['submit'] == "View article (by name)") {
 	echo '<tr>';
 	echo '<th>Id</th>';
 	echo '<th>Name</th>';
-	echo '<th>CategoryID</th>';
 	echo '<th>Image URL</th>';
 	echo '<th>Description</th>';
 	echo '<th>Price</th>';
@@ -87,7 +103,6 @@ if (isset($_POST['submit']) && $_POST['submit'] == "View article (by name)") {
 		echo '<tr>';
     	echo '<td>' . $val['id'] . '</td>';
     	echo '<td>' . $val['name'] . '</td>';
-    	echo '<td>' . $val['categoryID'] . '</td>';
     	echo '<td>' . $val['img'] . '</td>';
     	echo '<td>' . $val['description'] . '</td>';
     	echo '<td>' . $val['price'] . '</td>';
