@@ -5,7 +5,8 @@ require_once ("./db_functions/add_product.php");
 require_once ("./db_functions/change_category.php");
 require_once ("./db_functions/del_category.php");
 
-if (is_admin($_SESSION['login'])) {
+session_start();
+//if (is_admin($_SESSION['login'])) {
 
 
     if (isset($_POST['submit']) && $_POST['submit'] == "Add category") {
@@ -32,5 +33,5 @@ if (is_admin($_SESSION['login'])) {
     if (isset($_POST['submit']) && $_POST['submit'] == "Delete category (by ID)") {
         del_category_by_id($_POST['delCatId']);
     }
-}
+//}
 ?>
