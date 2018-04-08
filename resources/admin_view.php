@@ -76,7 +76,7 @@ if (isset($_POST['submit']) && $_POST['submit'] == "View articles (by category)"
 	echo '<th>SKU</th>';
 	echo '</tr>';
 
- 	$res = get_products_by_category_name($_POST['viewArtiByCatName']);
+ 	if ($res = get_products_by_category_name($_POST['viewArtiByCatName'])) {
 	foreach ($res as $val) {
 		echo '<tr>';
     	echo '<td>' . $val['id'] . '</td>';
@@ -86,6 +86,7 @@ if (isset($_POST['submit']) && $_POST['submit'] == "View articles (by category)"
     	echo '<td>' . $val['price'] . '</td>';
     	echo '<td>' . $val['SKU'] . '</td>';
 		echo '</tr>';
+	}
 	}
 }
 if (isset($_POST['submit']) && $_POST['submit'] == "View article (by name)") {
@@ -98,7 +99,7 @@ if (isset($_POST['submit']) && $_POST['submit'] == "View article (by name)") {
 	echo '<th>SKU</th>';
 	echo '</tr>';
 
- 	$res = get_product_by_name($_POST['viewArtiByName']);
+ 	if ($res = get_product_by_name($_POST['viewArtiByName'])) {
 	foreach ($res as $val) {
 		echo '<tr>';
     	echo '<td>' . $val['id'] . '</td>';
@@ -108,6 +109,7 @@ if (isset($_POST['submit']) && $_POST['submit'] == "View article (by name)") {
     	echo '<td>' . $val['price'] . '</td>';
     	echo '<td>' . $val['SKU'] . '</td>';
 		echo '</tr>';
+	}
 	}
 }
 if (isset($_POST['viewUseriById']) && isset($_POST['submit']) && $_POST['submit'] == "View user (by ID)") {

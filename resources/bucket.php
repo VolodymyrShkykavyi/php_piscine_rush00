@@ -1,12 +1,12 @@
 <?php
-session_start();
+// session_start();
 require_once ("db_functions/get_products.php");
 
-if ($_POST['bucket_del_item']){
+if (isset($_POST['bucket_del_item'])){
     clear_bucket_item($_POST['bucket_del_item']);
     $_POST['bucket_del_item'] = NULL;
 }
-if ($_POST['bucket_delete']){
+if (isset($_POST['bucket_delete'])){
     clear_bucket();
 }
 
@@ -20,7 +20,7 @@ function get_bucket()
             $_SESSION['bucket'] = array();
         }
     }
-    setcookie('bucket', serialize( $_SESSION['bucket']), time() + 86400);
+    @setcookie('bucket', serialize( $_SESSION['bucket']), time() + 86400);
     foreach ($_SESSION['bucket'] as $value) {
         ?>
         <div style="height: 70px; width: 100%;">
@@ -56,8 +56,11 @@ function add_tobucket($id){
 }
 
 function bucket_total_price(){
+
     $total = 0;
     foreach ($_SESSION['bucket'] as $value){
+        if (!isset($value['count']))
+            continue;
         $total += $value['price'] * $value['count'];
         }
         echo "<br/>Total price: \${$total}<br/><br/>";
