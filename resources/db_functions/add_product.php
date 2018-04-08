@@ -36,6 +36,17 @@ function add_product($arr){
     return (true);
 }
 
+function add_product_category($product_id, $category_id){
+	$product_id = trim($product_id);
+	$category_id = trim($category_id);
+	if (!is_numeric($product_id) || !is_numeric($category_id) || $product_id < 1 || $category_id < 1)
+		return(false);
+	if (!get_product_by_id($product_id) || !get_category_name_by_id($category_id))
+		return(false);
+	db_query(db_connect(), "INSERT INTO `product_categories` (`productId`, `categoryId`) VALUES ('{$product_id}', '{$category_id}');");
+	return(true);
+}
+
 function create_product_arr($name, $categories, $img_url, $decr, $price, $sku=0){
     if (!$name || empty($categories) || !$img_url || !$decr || !$price ||
         !is_numeric($price) || !is_numeric($sku)){

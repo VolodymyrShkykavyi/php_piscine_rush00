@@ -48,6 +48,19 @@ function get_product_by_name($name){
     return($data);
 }
 
+function get_product_by_id($id){
+	if (!$id || !is_numeric($id) || $id < 1) {
+		return (null);
+	}
+	$conn = db_connect();
+	$data = db_query($conn, "SELECT * FROM `products` WHERE `id` = '{$id}'");
+	if ($data && $data[0] && $data[0]['id']){
+		$data[0]['categories'] = array_values(
+			db_query(db_connect(), "SELECT `categoryId` FROM `product_categories` WHERE `productId` = '{$data[0]['id']}'")
+		);
+	}
+	return ($data);
+}
 
 //echo "by id:<br>";
 //$res = get_products_by_category_id("1");
