@@ -15,6 +15,10 @@
 #viewTable {
 	border-collapse: collapse;
 }
+#viewField {
+	width: 100%;
+}
+
 #admBody {
 	background-color: rgb(230, 230, 230);
 }

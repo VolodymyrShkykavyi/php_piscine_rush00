@@ -113,6 +113,12 @@ function change_user_by_id($id, $arr){
     return(true);
 }
 
+function get_users_all(){
+    $conn = db_connect();
+    $res = db_query($conn, "SELECT * FROM `users`;");
+    return($res);
+}
+
 //var_dump(add_user('user33', 'adm2@adm.uaw', 'pass'));
 
 //var_dump(get_user_by_id(3));
