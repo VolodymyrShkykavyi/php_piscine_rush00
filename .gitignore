@@ -1,2 +1,4 @@
 .*
 !/.gitignore
+resources/db_functions/db_config.php
+db_config.php
