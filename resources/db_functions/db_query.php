@@ -27,6 +27,8 @@ function db_query($conn, $sql){
     }
     mysqli_close($conn);
     $res = array();
+    if (is_bool($data))
+    	return($res);
     while (($row = mysqli_fetch_array($data, MYSQLI_ASSOC))){
         $res[] = $row;
     }

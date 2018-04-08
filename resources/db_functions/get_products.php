@@ -40,7 +40,7 @@ function get_product_by_name($name){
     $conn = db_connect();
     $name = mysqli_real_escape_string($conn, $name);
     $data = db_query($conn, "SELECT * FROM `products` WHERE `name` = '{$name}'");
-	if ($data[0] && $data[0]['id']){
+	if ($data && $data[0] && $data[0]['id']){
 		$data[0]['categories'] = array_values(
 			db_query(db_connect(), "SELECT `categoryId` FROM `product_categories` WHERE `productId` = '{$data[0]['id']}'")
 		);
