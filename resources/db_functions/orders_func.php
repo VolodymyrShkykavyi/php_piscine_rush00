@@ -20,4 +20,35 @@ function add_order($userId, $products_id_arr){
     return(true);
 }
 
-//var_dump(add_order(3, [1, 2, 3]));
+function get_order_by_id($id){
+    $id = trim($id);
+    if (!$id || $id < 0 || !is_numeric($id))
+        return(false);
+    $res = db_query(db_connect(), "SELECT * FROM `orders` WHERE `id` = '{$id}' LIMIT 1;");
+    if (empty($res))
+        return(false);
+    return($res[0]);
+}
+
+function get_orders_by_user_id($id){
+    $id = trim($id);
+    if (!$id || $id < 0 || !is_numeric($id) || !get_user_by_id($id))
+        return(false);
+    $res = db_query(db_connect(), "SELECT * FROM `orders` WHERE `userID` = '{$id}'");
+    return($res);
+}
+
+function del_order_by_id($id){
+    if (!$id || empty(get_order_by_id($id)))
+        return(false);
+    db_query(db_connect(), "DELETE FROM `orders` WHERE `id` = '{$id}'");
+    return (true);
+}
+
+//var_dump(add_order(1, [1, 2, 4]));
+
+//var_dump(get_order_by_id(1));
+
+//var_dump(get_orders_by_user_id(1));
+
+//var_dump(del_order_by_id(3));
