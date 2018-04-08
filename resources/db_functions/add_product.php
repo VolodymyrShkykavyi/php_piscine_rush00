@@ -47,19 +47,21 @@ function add_product_category($product_id, $category_id){
 	return(true);
 }
 
-function create_product_arr($name, $categories, $img_url, $decr, $price, $sku=0){
-    if (!$name || empty($categories) || !$img_url || !$decr || !$price ||
+function create_product_arr($name, $categories_arr, $img_url, $decr, $price, $sku=0){
+    if (!$name || empty($categories_arr) || !$img_url || !$decr || !$price ||
         !is_numeric($price) || !is_numeric($sku)){
         return(null);
     }
     $categories_id = array();
-    foreach ($categories as &$value){
+    foreach ($categories_arr as &$value){
     	$value = trim($value);
     	if (!is_numeric($value)) {
-			$categories_id[] = get_category_id_by_name($value);
+    	    if (!empty($cat_id = get_category_id_by_name($value)))
+			    $categories_id[] = $cat_id;
 		}
 		elseif($value){
-    		$categories_id[] = $value;
+    	    if (get_category_name_by_id($value))
+    		    $categories_id[] = $value;
 		}
 	}
     if (empty($categories_id) || get_product_by_name($name))
@@ -69,4 +71,4 @@ function create_product_arr($name, $categories, $img_url, $decr, $price, $sku=0)
     return($arr);
 }
 
-add_product(create_product_arr("myproduct008", ['1', 'Dogs'], "url", "descr", "123", 1));
+//add_product(create_product_arr("myproduct008", ['1', 'Dogs'], "url", "descr", "123", 1));
