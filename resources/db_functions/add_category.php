@@ -4,7 +4,7 @@ require_once ("get_categories.php");
 
 function add_category($name){
     $name = trim($name);
-    if (!get_category_id_by_name($name) || !$name)
+    if (get_category_id_by_name($name) || !$name)
         return (false);
     $conn = db_connect();
     $name = mysqli_real_escape_string($conn, $name);

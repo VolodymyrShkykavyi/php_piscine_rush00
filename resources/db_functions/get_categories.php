@@ -25,7 +25,7 @@ function get_category_name_by_id($id){
     return ($data[0]['name']);
 }
 
-
+//
 //$res = get_categories_all();
 //foreach ($res as $val) {
 //    echo nl2br(print_r($val, 1));

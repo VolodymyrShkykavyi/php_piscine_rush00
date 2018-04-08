@@ -21,3 +21,6 @@ function del_category_by_id($id){
 	db_query(db_connect(), "DELETE FROM `product_categories` WHERE `categoryId` = {$id}");
     return (true);
 }
+
+//del_category_by_id(3);
+//del_category_by_name('Phones');
