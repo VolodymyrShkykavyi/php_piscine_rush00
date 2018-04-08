@@ -17,6 +17,7 @@ function add_order($userId, $products_arr, $price){
             return(false);
         }
     }
+
     $conn = db_connect();
     $data = mysqli_real_escape_string($conn, serialize($products_arr));
     db_query($conn, "INSERT INTO `orders` (`userID`, `products`, `price`) VALUES ('{$userId}', '{$data}', {$price});");

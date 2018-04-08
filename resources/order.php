@@ -9,16 +9,18 @@ if (isset($_POST['make_order']) && $_POST['make_order'] == "Order") {
         echo "Order status: ";
         $product_arr = array();
         $error = "";
+        $price = 0;
         foreach ($_SESSION['bucket'] as $value) {
             if (!get_product_by_id($value['id']))
                 $error = $error . ", {$value['name']}";
-            $product_arr[] = $value['id'];
+            $price += $value['count'] * $value['price'];
+            $product_arr[] = array('id' => $value['id'], 'count' => $value['count']);
         }
         $error = trim($error, ", ");
         if (strlen($error)) {
             echo "FAIL<br/>We aren't sell this products: {$error}<br/>";
         } else {
-            if (!add_order($_SESSION['id'], $product_arr)) {
+            if (!isset($value['price']) || !add_order($_SESSION['id'], $product_arr, $price)) {
                 echo "FAIL<br/>Something going wrong. Please try again later.";
             } else {
                 echo "SUCCESS";
@@ -39,7 +41,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['id']) && $_SESSION['id'] && $_SES
 
 ?>
 <table>
-    <tr style="text-align: center"><td>Id</td><td>Date</td><td>Products</td></tr>
+    <tr style="text-align: center"><td>Id</td><td>Date</td><td>Products</td><td>Price</td></tr>
 <?php
     foreach ($all_orders as $order){
 ?>
@@ -52,13 +54,15 @@ if (isset($_SESSION['id']) && isset($_SESSION['id']) && $_SESSION['id'] && $_SES
         $product_arr = unserialize($order['products']);
         $str = "";
         foreach ($product_arr as $value){
-            $name = get_product_by_id($value)['name'];
-            $str = $str . ", {$name}";
+            $name = get_product_by_id($value['id'])['name'];
+            $count = $value['count'];
+            $str = $str . ", {$name}({$count}) ";
         }
         $str = trim($str, ", ");
         echo $str;
 ?>
         </td>
+        <td><?=$order['price']; ?></td>
     </tr>
 <?php
     }
