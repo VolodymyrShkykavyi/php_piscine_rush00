@@ -52,6 +52,11 @@
 		</div> -->
 	</div>
 	<div id="bucket">
-		
+		<img id="bucketImg" src="./resources/images/typewriter.png" alt="Bucket" title="Bucket">
+		<p> 1234 </p>
+		<p> 1234 </p>
+		<p> 1234 </p>
+		<p> 1234 </p>
+		<input id="orderButton" type="submit" name="submit" value="Order">
 	</div>
 </div>

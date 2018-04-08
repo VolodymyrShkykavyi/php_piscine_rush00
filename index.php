@@ -5,6 +5,7 @@
 	<link rel="stylesheet" type="text/css" href="./resources/styles/header.css">
 	<link rel="stylesheet" type="text/css" href="./resources/styles/content.css">
 	<link rel="stylesheet" type="text/css" href="./resources/styles/footer.css">
+	<link rel="stylesheet" type="text/css" href="./resources/styles/admin_page.css">
 </head>
 <body>
 	<?php include("./resources/db_functions/get_categories.php"); ?>

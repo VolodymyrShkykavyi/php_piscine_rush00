@@ -1,0 +1,19 @@
+#viewField {
+	width: 800px;
+	height: 400px;
+	border: 1px solid black;
+	overflow: auto;
+	background-color: white;
+}
+#toShop {
+	
+}
+#viewTable td, th {
+	border: 1px solid black;
+}
+#viewTable {
+	border-collapse: collapse;
+}
+#admBody {
+	background-color: rgb(230, 230, 230);
+}

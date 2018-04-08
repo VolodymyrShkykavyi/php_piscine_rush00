@@ -31,19 +31,19 @@
 	#categ {
 		width: 150px;
 		clear: left;
-  	  position: absolute;
+		position: absolute;
 	}
 	#items {
 		width: 300px;
 		clear: left;
- 	   position: absolute;
- 	   margin-left: 150px;
+		position: absolute;
+		margin-left: 150px;
 	}
 	#bucket {
 		width: 150px;
 		clear: left;
- 	   position: absolute;
- 	   margin-left: 450px;
+		position: absolute;
+		margin-left: 450px;
 	}
 }
 .categ {
@@ -71,8 +71,14 @@
 	text-align: center;
 	line-height: 0px;
 }
-
-
+#bucketImg {
+	width: 80%;
+	margin: 20px 0px 0px 20px;
+}
+#orderButton {
+	font-size: 20vw;
+	margin-left: 40%;
+}
 
 
 
